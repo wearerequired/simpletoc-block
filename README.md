@@ -1,5 +1,5 @@
-# Scroll Slide Block
-A custom WordPress plugin.
+# Simple TOC Block
+A custom WordPress plugin. This plugin is a fork of [mtoensing/simpletoc](https://github.com/mtoensing/simpletoc).
 
 ## Plugin Development
 
