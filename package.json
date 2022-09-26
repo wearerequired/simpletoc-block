@@ -1,19 +1,34 @@
 {
-  "name": "simpletoc",
-  "version": "5.0.28",
-  "author": "Marc Tönsing",
+  "name": "@wearerequired/simpletoc-block",
+  "version": "1.0.0",
   "description": "SEO-friendly Table of Contents Gutenberg block. No JavaScript and no CSS means faster loading.",
   "main": "build/index.js",
-  "license": "GPL-2.0-or-later",
   "scripts": {
-    "start": "wp-scripts start",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "wp-scripts build",
-    "format": "wp-scripts format",
-    "format:src": "wp-scripts format ./src",
-    "packages-update": "wp-scripts packages-update"
+    "start": "wp-scripts start",
+    "lint-js": "wp-scripts lint-js",
+    "lint-js:fix": "wp-scripts lint-js --fix",
+    "lint-css": "wp-scripts lint-style",
+    "lint-css:fix": "wp-scripts lint-style --fix"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wearerequired/simpletoc-block.git"
+  },
+  "author": "required gmbh",
+  "license": "GPL-2.0-or-later",
+  "bugs": {
+    "url": "https://github.com/wearerequired/simpletoc-block/issues"
+  },
+  "homepage": "https://github.com/wearerequired/simpletoc-block#readme",
   "devDependencies": {
-    "@wordpress/scripts": "^24.1.0",
+    "@wearerequired/browserslist-config": "0.3.0",
+    "@wearerequired/eslint-config": "3.0.0",
+    "@wearerequired/postcss-config": "1.0.0",
+    "@wearerequired/stylelint-config": "3.0.0",
+    "@wordpress/scripts": "24.0.0",
+    "prettier": "npm:wp-prettier@2.6.2",
     "ansi-regex": ">=6.0.1",
     "markdown-it": ">=12.3.2",
     "nanoid": ">=3.1.31",
@@ -24,5 +39,33 @@
   "dependencies": {
     "@wordpress/i18n": "^4.17.0",
     "@wordpress/server-side-render": "^3.15.0"
+  },
+  "stylelint": {
+    "extends": [
+      "@wearerequired/stylelint-config"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "@wearerequired/eslint-config"
+    ],
+    "rules": {
+      "@wordpress/i18n-text-domain": [
+        "error",
+        {
+          "allowedTextDomain": [
+            "simpletoc-block"
+          ]
+        }
+      ]
+    }
+  },
+  "browserslist": [
+    "extends @wearerequired/browserslist-config/modern"
+  ],
+  "babel": {
+    "presets": [
+      "@wordpress/babel-preset-default"
+    ]
   }
 }

@@ -1,8 +1,7 @@
 {
-	"$schema": "https://json.schemastore.org/block.json",
 	"apiVersion": 2,
-	"name": "simpletoc/toc",
-	"version": "5.0.28",
+	"name": "wearerequired/simpletoc-block",
+	"version": "1.0.0",
 	"title": "SimpleTOC",
 	"category": "layout",
 	"keywords": [ "TOC", "Table of Contents", "SimpleTOC", "Inhaltsverzeichnis", "Index" ],
@@ -49,7 +48,5 @@
 	"supports": {
 		"align": [ "wide" , "full"]
 	},
-	"textdomain": "simpletoc",
-	"editorScript": "file:index.js",
-	"editorStyle": "file:editor.css"
+	"textdomain": "simpletoc"
 }

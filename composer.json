@@ -23,7 +23,7 @@
   "prefer-stable": true,
   "autoload": {
     "psr-4": {
-      "Required\\Blocks\\ScrollSlide\\": "inc"
+      "Required\\Blocks\\SimpleTOC\\": "inc"
     }
   },
   "config": {
