@@ -10,7 +10,6 @@ import {
 	Panel,
 	PanelBody,
 	PanelRow,
-	ExternalLink,
 } from '@wordpress/components';
 import { select, subscribe } from '@wordpress/data';
 import { useEffect, useState } from 'react';

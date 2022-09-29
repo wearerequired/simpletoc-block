@@ -81,13 +81,11 @@ const scrollTracking = async () => {
 	// Wait for 1s to make sure the headings are rendered.
 	await new Promise( ( resolve ) => setTimeout( resolve, 1000 ) );
 
+	// Get all links from the TOC.
 	const links = getAllLinks();
-	// Get all the headings in the TOC
+	// Get all the headings in the TOC in reverse order.
 	const headings = getAllHeadings().reverse();
-
 	const MAX_PROGRESS = headings.length - 1;
-
-	// Calculate the progress between the closest heading and the next heading
 
 	// Add event listeners
 	window.addEventListener( 'scroll', () => {
