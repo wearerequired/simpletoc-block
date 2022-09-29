@@ -558,7 +558,8 @@ function generateToc( $headings, $attributes )
   if ($attributes['no_title'] == false) {
     $html = "<h2 class=\"simpletoc-title\">" . $title_text . "</h2>";
   }
-  $html .= "<" . $listtype . " class=\"simpletoc-list\" " . $styles ."  " . $alignclass .">\n" . $list . "</li></" . $listtype . ">";
+  $progress_html = "<div class=\"progress-bar\"><div class=\"progress-bar-indicator\"></div></div>";
+  $html .= "<div class=\"simpletoc-list\">" . $progress_html . "<" . $listtype . " " . $styles ."  " . $alignclass .">\n" . $list . "</li></" . $listtype . "></div>";
 
   if($itemcount < 1) {
     $html = '';
