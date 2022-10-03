@@ -77,9 +77,53 @@ const getTotalScrollProgress = () => {
 	return scrollDistance / totalScrollDistance;
 };
 
+/**
+ * Check if element is in viewport.
+ * This checks if it is in the viewport vertically and horizontally.
+ *
+ * @param {HTMLElement} element
+ *
+ * @return {boolean} isInViewport
+ */
+const isInViewport = ( element ) => {
+	const rect = element.getBoundingClientRect();
+
+	return (
+		rect.top >= 0 &&
+		rect.left >= 0 &&
+		rect.bottom <= ( window.innerHeight || document.documentElement.clientHeight ) &&
+		rect.right <= ( window.innerWidth || document.documentElement.clientWidth )
+	);
+};
+
+/**
+ * Scroll element inside a scrollable container into view.
+ *
+ * @param {HTMLElement}               element
+ * @param {HTMLElement}               container
+ * @param {'vertical' | 'horizontal'} axis
+ *
+ * @return {void}
+ */
+const scrollIntoView = ( element, container, axis = 'vertical' ) => {
+	const { top, left } = element.getBoundingClientRect();
+	const { top: containerTop, left: containerLeft } = container.getBoundingClientRect();
+
+	const scrollLeft = left - containerLeft + container.scrollLeft;
+	const scrollTop = top - containerTop + container.scrollTop;
+
+	if ( axis === 'vertical' ) {
+		container.scrollTo( { top: scrollTop, behavior: 'smooth' } );
+	} else {
+		container.scrollTo( { left: scrollLeft, behavior: 'smooth' } );
+	}
+};
+
 const scrollTracking = async () => {
 	// Wait for 1s to make sure the headings are rendered.
 	await new Promise( ( resolve ) => setTimeout( resolve, 1000 ) );
+
+	const tocListContainer = document.querySelector( '.simpletoc-list > ul, simpletoc-list > ol' );
 
 	// Get all links from the TOC.
 	const links = getAllLinks();
@@ -103,6 +147,11 @@ const scrollTracking = async () => {
 		const closestHeadingLink = document.querySelector(
 			`a[href="#${ closestHeading.getAttribute( 'id' ) }"]`
 		);
+
+		// Check if closestHeadingLink is in the viewport
+		if ( ! isInViewport( closestHeadingLink ) ) {
+			scrollIntoView( closestHeadingLink, tocListContainer, 'horizontal' );
+		}
 
 		closestHeadingLink.classList.add( 'current' );
 
