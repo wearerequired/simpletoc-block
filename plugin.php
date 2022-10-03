@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Plugin Name:   SimpleTOC - Table of Contents Block
  * Plugin URI: https://github.com/wearerequired/simpletoc-block

@@ -10,9 +10,7 @@ use function Required\Traduttore_Registry\add_project;
 /**
  * Inits plugin.
  */
-
 function bootstrap(): void {
-	// wp_set_script_translations( 'simpletoc-toc-editor-script', 'simpletoc' );
 	add_action( 'init', __NAMESPACE__ . '\register_translations_project' );
 	add_action( 'init', __NAMESPACE__ . '\register_assets' );
 	add_action( 'init', __NAMESPACE__ . '\register_block_types' );
