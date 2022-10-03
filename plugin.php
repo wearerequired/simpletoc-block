@@ -2,14 +2,14 @@
 /**
  * Plugin Name:   SimpleTOC - Table of Contents Block
  * Plugin URI: https://github.com/wearerequired/simpletoc-block
- * Description:   SEO-friendly Table of Contents Gutenberg block. No JavaScript and no CSS means faster loading.
+ * Description:   SEO-friendly Table of Contents Gutenberg block.
  * Version:       1.0.0
  * Requires at least: 5.6
  * Requires PHP: 7.1
  * Author: required
  * Author URI: https://required.com
  * Update URI: false
- * Text Domain: scroll-slide-block
+ * Text Domain: simpletoc-block
  * License: GPL v2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  *
