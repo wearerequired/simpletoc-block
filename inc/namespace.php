@@ -416,6 +416,8 @@ function addAnchorAttribute( $html )
 	foreach ($tags as $tag) {
 		// if tag already has an attribute "id" defined, no need for creating a new one
 		if (!empty($tag->getAttribute('id'))) {continue;}
+		// if the tag has the class of "simpletoc-hidden" defined, no need for creating an id
+		if (strpos($tag->getAttribute('class'), 'simpletoc-hidden') !== false) {continue;}
 		// Set id attribute
 		$heading_text = strip_tags($html);
 		$anchor = simpletoc_sanitize_string($heading_text);
@@ -510,7 +512,11 @@ function generateToc( $headings, $attributes )
 		}
 
 		// skip this heading because a max depth is set.
-		if ($this_depth > $attributes['max_level'] or strpos($headline, 'class="simpletoc-hidden') > 0) {
+		if ($this_depth > $attributes['max_level']) {
+			goto closelist;
+		}
+
+		if (strpos($headline, 'simpletoc-hidden') > 0) {
 			goto closelist;
 		}
 
