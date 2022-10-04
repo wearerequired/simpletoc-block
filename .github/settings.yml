@@ -14,7 +14,7 @@ branches:
         # Require branches to be up to date before merging.
         strict: true
         # Required. The list of status checks to require in order to merge into this branch
-        contexts: [ 'Set up and run linters', 'ESLint', 'PHP_CodeSniffer', 'stylelint', 'Build and commit updated assets' ]
+        contexts: [ 'Set up and run linters', 'ESLint', 'PHP_CodeSniffer', 'stylelint' ]
       # Don't enforce restrictions for administrators.
       enforce_admins: null
       # Prevent merge commits from being pushed.
