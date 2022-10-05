@@ -27,7 +27,7 @@
     "@wearerequired/eslint-config": "3.0.0",
     "@wearerequired/postcss-config": "1.0.0",
     "@wearerequired/stylelint-config": "3.0.0",
-    "@wordpress/scripts": "24.0.0",
+    "@wordpress/scripts": "24.2.0",
     "prettier": "npm:wp-prettier@2.6.2",
     "ansi-regex": ">=6.0.1",
     "markdown-it": ">=12.3.2",
