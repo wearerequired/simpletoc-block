@@ -554,7 +554,7 @@ function generate_toc( array $headings, array $attributes ): string {
 			if ( $min_depth > $next_depth ) {
 				// If yes, how many times?
 				for ( $min_depth; $min_depth > $next_depth; $min_depth-- ) {
-					$list .= '</li></' . $listtype . '>\n';
+					$list .= '</li></' . $listtype . '>';
 				}
 			}
 
@@ -564,7 +564,7 @@ function generate_toc( array $headings, array $attributes ): string {
 			// last heading.
 		} else {
 			for ( $inital_depth; $inital_depth < $this_depth; $inital_depth++ ) {
-				$list .= '</li></' . $listtype . '>\n';
+				$list .= '</li></' . $listtype . '>';
 			}
 		}
 	}
