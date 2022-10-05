@@ -46,7 +46,7 @@
 		left: 0;
 		height: 3px;
 		background: #4f1f68;
-		transition: all .3s ease-in-out;
+		transition: all .3s linear;
 		width: var( --progress );
 		border-radius: 2px;
 	}
