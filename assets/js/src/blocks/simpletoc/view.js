@@ -123,7 +123,7 @@ const scrollTracking = async () => {
 	// Wait for 1s to make sure the headings are rendered.
 	await new Promise( ( resolve ) => setTimeout( resolve, 1000 ) );
 
-	const tocListContainer = document.querySelector( '.simpletoc-list > ul, simpletoc-list > ol' );
+	const tocListContainer = document.querySelector( '.simpletoc-list > ul, .simpletoc-list > ol' );
 
 	// Get all links from the TOC.
 	const links = getAllLinks();
