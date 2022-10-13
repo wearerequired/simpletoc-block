@@ -145,7 +145,7 @@ const scrollTracking = async () => {
 		} );
 
 		const closestHeadingLink = document.querySelector(
-			`a[href="#${ closestHeading.getAttribute( 'id' ) }"]`
+			`.simpletoc-list a[href="#${ closestHeading.getAttribute( 'id' ) }"]`
 		);
 
 		// Check if closestHeadingLink is in the viewport
