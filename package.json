@@ -37,7 +37,7 @@
     "postcss": ">=8.4.5"
   },
   "dependencies": {
-    "@wordpress/i18n": "^4.17.0",
+    "@wordpress/i18n": "^4.30.0",
     "@wordpress/server-side-render": "^3.15.0"
   },
   "stylelint": {
