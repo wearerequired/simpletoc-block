@@ -1,7 +1,17 @@
-import { registerBlockType } from '@wordpress/blocks';
+/**
+ * Internal dependencies
+ */
 import metadata from './block.json';
+import edit from './edit';
+import save from './save';
 
-const simpletocicon = (
+import './style.css';
+
+const { name } = metadata;
+
+export { metadata, name };
+
+const icon = (
 	<svg
 		fillRule="evenodd"
 		strokeLinejoin="round"
@@ -13,22 +23,8 @@ const simpletocicon = (
 	</svg>
 );
 
-/**
- * Internal dependencies
- */
-import Edit from './edit';
-import save from './save';
-import './style.css';
-
-registerBlockType( metadata, {
-	icon: simpletocicon,
-	/**
-	 * @see ./edit.js
-	 */
-	edit: Edit,
-
-	/**
-	 * @see ./save.js
-	 */
+export const settings = {
+	icon,
+	edit,
 	save,
-} );
+};
