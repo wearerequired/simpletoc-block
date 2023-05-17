@@ -245,7 +245,7 @@ function render_callback( array $attributes ): string {
 	}
 
 	$post = get_post();
-	if ( \is_null( $post ) || \is_null( $post->post_content ) ) {
+	if ( empty( $post->post_content ) ) {
 		$blocks = '';
 	} else {
 		$blocks = parse_blocks( $post->post_content );
@@ -343,8 +343,11 @@ function filter_headings_recursive( array $blocks ): array {
 		if ( \is_array( $inner_block ) ) {
 			if ( isset( $inner_block['attrs']['ref'] ) ) {
 				// Search in reusable blocks.
-				$e_arr = parse_blocks( get_post( $inner_block['attrs']['ref'] )->post_content );
-				$arr   = array_merge( filter_headings_recursive( $e_arr ), $arr );
+				$post = get_post( $inner_block['attrs']['ref'] );
+				if ( ! empty( $post->post_content ) ) {
+					$e_arr = parse_blocks( $post->post_content );
+					$arr   = array_merge( filter_headings_recursive( $e_arr ), $arr );
+				}
 			} else {
 				// search in groups.
 				$arr = array_merge( filter_headings_recursive( $inner_block ), $arr );
