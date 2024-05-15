@@ -19,21 +19,19 @@ const getScrollDistance = () => {
 
 const getAllLinks = () => {
 	const tocList = document.querySelector( '.simpletoc-list' );
-	const links = tocList.querySelectorAll( 'a' );
-
-	return links;
+	return tocList.querySelectorAll( 'a' );
 };
 
 /**
  * Get all the headings that are linked in the TOC.
  *
+ * @param {HTMLElement[]} links
  * @return {HTMLElement[]} headings
  */
-const getAllHeadings = () => {
-	const links = getAllLinks();
+const getAllHeadings = ( links ) => {
 	const hrefIds = Array.from( links ).map( ( link ) => link.getAttribute( 'href' ) );
 
-	return hrefIds.map( ( hrefId ) => document.querySelector( hrefId ) );
+	return hrefIds.map( ( hrefId ) => document.querySelector( hrefId ) ).filter( Boolean );
 };
 
 /**
@@ -124,11 +122,22 @@ const scrollTracking = async () => {
 	await new Promise( ( resolve ) => setTimeout( resolve, 1000 ) );
 
 	const tocListContainer = document.querySelector( '.simpletoc-list > ul, .simpletoc-list > ol' );
+	if ( ! tocListContainer ) {
+		return;
+	}
 
 	// Get all links from the TOC.
 	const links = getAllLinks();
+	if ( ! links.length ) {
+		return;
+	}
+
 	// Get all the headings in the TOC in reverse order.
-	const headings = getAllHeadings().reverse();
+	const headings = getAllHeadings( links ).reverse();
+	if ( ! headings.length ) {
+		return;
+	}
+
 	const MAX_PROGRESS = headings.length - 1;
 
 	// Add event listeners
