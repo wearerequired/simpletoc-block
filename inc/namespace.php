@@ -432,7 +432,7 @@ function add_anchor_attribute( string $html ): string {
 	}
 
 	// Save the HTML changes.
-	$content = mb_convert_encoding( $dom->saveHTML( $dom->documentElement ), 'ISO-8859-1', 'UTF-8'); //phpcs:ignore
+	$content = mb_convert_encoding( $dom->saveHTML( $dom->documentElement ), 'ISO-8859-1', 'UTF-8' ); //phpcs:ignore
 
 	return $content;
 }
