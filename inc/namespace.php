@@ -407,7 +407,7 @@ function add_anchor_attribute( string $html ): string {
 
 	libxml_use_internal_errors( true );
 	$dom = new \DOMDocument();
-	$dom->loadHTML( $html_wo_nbs, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD );
+	$dom->loadHTML( '<?xml version="1.0" encoding="UTF-8"?>' . "\n" . $html_wo_nbs, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD );
 
 	// use xpath to select the Heading html tags.
 	$xpath = new \DOMXPath( $dom );
@@ -432,7 +432,7 @@ function add_anchor_attribute( string $html ): string {
 	}
 
 	// Save the HTML changes.
-	$content = utf8_decode( $dom->saveHTML( $dom->documentElement ) ); //phpcs:ignore
+	$content = $dom->saveHTML( $dom->documentElement ); // phpcs:ignore WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase
 
 	return $content;
 }
